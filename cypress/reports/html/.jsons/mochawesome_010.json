@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-30T08:51:37.705Z",
+    "end": "2025-06-30T08:51:43.577Z",
+    "duration": 5872,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7ce16448-568d-49e3-8b77-0b73b6ed639f",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test4.js",
+      "file": "cypress\\integration\\examples\\Test4.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "74f83e28-bdb9-440e-a815-307a6d02a59b",
+          "title": "My Second Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My FirstTest case",
+              "fullTitle": "My Second Test Suite My FirstTest case",
+              "timedOut": null,
+              "duration": 4559,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Check boxes\ncy.visit(\"https://rahulshettyacademy.com/AutomationPractice/\");\ncy.get('#alertbtn').click();\ncy.get('[value=\"Confirm\"]').click();\n//window:alert\ncy.on('window:alert', function (str) {\n  //Mocha\n  expect(str).to.equal('Hello , share this practice page and share your knowledge');\n});\ncy.on('window:confirm', function (str) {\n  //Mocha\n  expect(str).to.equal('Hello , Are you sure you want to confirm?');\n});",
+              "err": {},
+              "uuid": "8a41a3e9-ac77-4bfc-a00d-d43a8d4e27e6",
+              "parentUUID": "74f83e28-bdb9-440e-a815-307a6d02a59b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8a41a3e9-ac77-4bfc-a00d-d43a8d4e27e6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4559,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-30T08:52:26.484Z",
+    "end": "2025-06-30T08:52:38.788Z",
+    "duration": 12304,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6c53f995-0048-474a-8f5b-f39925653def",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test8Framework_rawCode.js",
+      "file": "cypress\\integration\\examples\\Test8Framework_rawCode.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4c7a33cf-d2ca-4081-ae76-9edc1c149aba",
+          "title": "End to End ecommerce Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Submit Order",
+              "fullTitle": "End to End ecommerce Test Submit Order",
+              "timedOut": null,
+              "duration": 10863,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var productName = this.data.productName;\ncy.visit(\"https://rahulshettyacademy.com/loginpagePractise/#\");\ncy.get(\"#username\").type(this.data.username);\ncy.get(\"#password\").type(this.data.password);\ncy.contains(\"Sign In\").click();\ncy.contains(\"Shop Name\").should('be.visible');\ncy.get('app-card').should('have.length', 4);\ncy.get('app-card').filter(\":contains(\\\"\".concat(productName, \"\\\")\")).then(function ($element) {\n  cy.wrap($element).should('have.length', 1);\n  cy.wrap($element).contains('button', 'Add').click();\n});\ncy.get('app-card').eq(0).contains('button', 'Add').click();\ncy.contains('a', 'Checkout').click();\nvar sum = 0;\ncy.get('tr td:nth-child(4) strong').each(function ($e1) {\n  //₹. 65000\n  var amount = Number($e1.text().split(\" \")[1].trim());\n  sum = sum + amount; //65000 + 1000000\n}).then(function () {\n  expect(sum).to.be.lessThan(200000);\n});\ncy.contains('button', 'Checkout').click();\nCypress.config('defaultCommandTimeout', 10000);\ncy.get(\"#country\").type(\"India\");\ncy.get(\".suggestions ul li a\").click();\ncy.get(\".btn-success\").click();\ncy.get(\".alert-success\").should('contain', 'Success');",
+              "err": {},
+              "uuid": "56524671-c308-47f6-b729-6eb73551662e",
+              "parentUUID": "4c7a33cf-d2ca-4081-ae76-9edc1c149aba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "56524671-c308-47f6-b729-6eb73551662e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10863,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

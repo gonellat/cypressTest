@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-30T08:52:49.829Z",
+    "end": "2025-06-30T08:52:58.368Z",
+    "duration": 8539,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "616b6842-ab02-4400-9f2e-94315186847f",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\sampleTest.js",
+      "file": "cypress\\integration\\examples\\sampleTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a67199c5-7c9c-44cb-8b09-9eb15a207f64",
+          "title": "Iframe Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test 6th",
+              "fullTitle": "Iframe Test Test 6th",
+              "timedOut": null,
+              "duration": 6892,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://rahulshettyacademy.com/AutomationPractice/\");\ncy.frameLoaded('#courses-iframe');\ncy.iframe().find('li.dropdown').eq(1).invoke('show');\ncy.iframe().contains('Part time jobs').click({\n  force: true\n});\ncy.wait(2000);\ncy.iframe().find('select[name=\"select-jpb-type\"]').select('Freelancing');",
+              "err": {},
+              "uuid": "5dc2a317-010c-4be6-a23c-0234e7083874",
+              "parentUUID": "a67199c5-7c9c-44cb-8b09-9eb15a207f64",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5dc2a317-010c-4be6-a23c-0234e7083874"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6892,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
