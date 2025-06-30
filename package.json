@@ -11,12 +11,6 @@
     "GreenKartTest": "npx cypress run --spec \"cypress/e2e/UI/GreenKart/*\"",
     "SmokeTest": "npx cypress run --spec \"cypress/e2e/UI/GreenKart/Test1.js\""
   },
-  "cypress-cucumber-preprocessor": {
-    "json": {
-      "enabled": true,
-      "output": "cypress/cucumberReports/results.json"
-    }
-  },
   "author": "Tim Gonella",
   "license": "ISC",
   "devDependencies": {
