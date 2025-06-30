@@ -1,5 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
-import HomePage from "../../../../support/pageObjects/HomePage"
+import HomePage from "../../../support/pageObjects/HomePage"
 const homePage = new HomePage()
 
 Given('I am on Ecommerce Page', () => {
@@ -34,7 +34,7 @@ When('Validate the total price limit', function () {
 })
 
 Then('select the country submit and verify Thankyou', function () {
-    const confirmationPage = this.cartPage.checkoutItems()
+    const confirmationPage = this.cartPage.checkOutItems()
     confirmationPage.submitFormDetails()
     confirmationPage.getAlertMessage().should('contain', 'Success')
 

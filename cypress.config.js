@@ -1,23 +1,21 @@
 const { defineConfig } = require("cypress");
-const browserify = require("@cypress/browserify-preprocessor");
-const { addCucumberPreprocessorPlugin,} = require("@badeball/cypress-cucumber-preprocessor");
+const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
 
 async function setupNodeEvents(on, config) {
   if (!config.env) {
     config.env = {};
   }
 
-  await addCucumberPreprocessorPlugin(on, {
+  await preprocessor.addCucumberPreprocessorPlugin(on, {
     ...config,
     testFileExtension: '.feature', // ✅ tells Cypress to not try JS parsing
     stepDefinitions: 'cypress/e2e/BDD/step_definitions'
   });
 
-  on('file:preprocessor', browserify({
-    typescript: require.resolve('typescript'),
-  }));
+  on("file:preprocessor", browserify.default(config));
 
-  return config;
+return config;
 }
 
 
