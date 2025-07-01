@@ -18,6 +18,7 @@ sqlServer.loadDBCommands();
 
 // Import commands.js using ES2015 syntax:
 import 'cypress-mochawesome-reporter/register';
+import '@badeball/cypress-cucumber-preprocessor/support';
 import './commands'
 import './beforeEach';
 // Alternatively you can use CommonJS syntax:
