@@ -13,14 +13,14 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import sqlServer from 'cypress-sql-server';
+const sqlServer = require('cypress-sql-server');
 sqlServer.loadDBCommands();
 
+require('cypress-mochawesome-reporter/register');
+require('./commands');
+require('./beforeEach')
+
 // Import commands.js using ES2015 syntax:
-import 'cypress-mochawesome-reporter/register';
-import '@badeball/cypress-cucumber-preprocessor/support';
-import './commands'
-import './beforeEach';
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
