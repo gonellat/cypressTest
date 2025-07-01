@@ -1,6 +1,9 @@
+const neatCSV = require('neat-csv');
+let productName 
 describe('JWT Storage', function () {
 
-    it('Is logged in through local storage', function () {
+    // use async as we are using async later on in the script
+    it('Is logged in through local storage', async () => {
 
         cy.LoginAPI().then(function () {
             cy.visit('https://rahulshettyacademy.com/client', {
@@ -10,7 +13,9 @@ describe('JWT Storage', function () {
             })
         })
 
-
+        cy.get(".card-body b").eq(1).then(function(ele) {
+            productName = ele.text();
+        })
         cy.get(".card-body button:last-of-type").eq(1).click();
         cy.get("[routerlink*='cart']").click();
         cy.contains("Checkout").click();
@@ -22,7 +27,14 @@ describe('JWT Storage', function () {
         })
         cy.get('.action__submit').click();
         // page will load but the csv won't be ready
-        cy.wait(2000);
+        cy.wait(4000);
         cy.contains('.btn-primary', 'CSV').click();
+
+        cy.readFile(Cypress.config("fileServerFolder") + "/cypress/downloads/order-invoice_timothy.gonella.csv")
+            .then(async (text) => {
+                const csv = await neatCSV(text)
+                const actualProductName = csv[0]["Product Name"]
+                expect(productName).to.equal(actualProductName)
+            })
     })
 })

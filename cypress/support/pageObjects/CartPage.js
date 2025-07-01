@@ -1,4 +1,8 @@
 import ConfirmationPage from '../../support/pageObjects/ConfirmationPage'
+// import is ESM config style but we are using commonJS style see 
+//      cypress config.const { defineConfig } = require("cypress");)
+// You can use either but maybe for consistency use:
+// const ConfirmationPage = require('../../support/pageObjects/ConfirmationPage');
 
 class CartPage {
 
@@ -19,4 +23,5 @@ class CartPage {
     }
 }
 
+// And.. module.exports = CartPage;
 export default CartPage;

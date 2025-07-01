@@ -12,33 +12,29 @@
     "SmokeTest": "npx cypress run --spec \"cypress/e2e/UI/GreenKart/Test1.js\"",
     "testbdd": "npx cypress run --spec \"cypress/e2e/BDD/features/ecommerce.feature\" && node cucumber-html-report.js"
   },
-
   "author": "Tim Gonella",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.15.2",
-    "cypress-mochawesome-reporter": "^3.8.2",
-    "mocha": "^10.1.0",
-    "multiple-cucumber-html-reporter": "^3.0.1",
-    "neat-csv": "5.1.0",
-    "typescript": "^5.8.3",
-    "@badeball/cypress-cucumber-preprocessor": "latest",
+    "@badeball/cypress-cucumber-preprocessor": "^17.2.1",
+    "@cypress/browserify-preprocessor": "^3.0.2",
     "@eslint/js": "^9.29.0",
+    "cypress": "^13.15.2",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.8.2",
     "eslint": "^9.29.0",
-    "eslint-plugin-cypress": "^5.1.0"
+    "eslint-plugin-cypress": "^5.1.0",
+    "mocha": "^10.1.0",
+    "multiple-cucumber-html-reporter": "^3.0.1",
+    "neat-csv": "5.1.0",
+    "typescript": "^5.8.3"
   },
-    "cypress-cucumber-preprocessor": {
+  "cypress-cucumber-preprocessor": {
     "stepDefinitions": "cypress/e2e/BDD/step_definitions/*.js",
-    "filterSpecs":true,
+    "filterSpecs": true,
     "omitFiltered": true,
     "json": {
       "enabled": true,
-      "output":"cypress/cucumberReport/results.json"
+      "output": "cypress/cucumberReport/results.json"
     }
-  },
-  "dependencies": {
-
   }
 }

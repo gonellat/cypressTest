@@ -31,6 +31,11 @@ Cypress.Commands.add("LoginAPI",()=> {
 //         })
 // })
 
+// This method is a custom wrapper for text called getText so you don't have to write then(....).text
+Cypress.Commands.add('getText', { prevSubject: 'element' }, (subject) => {
+  return cy.wrap(subject).invoke('text');
+});
+
 Cypress.Commands.add('submitFormDetails',()=> {
         cy.get("#country").type("India")
         cy.get(".suggestions ul li a").click()
