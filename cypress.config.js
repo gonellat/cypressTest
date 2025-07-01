@@ -24,7 +24,7 @@ async function setupNodeEvents(on, config) {
   await preprocessor.addCucumberPreprocessorPlugin(on, {
     ...config,
     testFileExtension: '.feature', // ✅ tells Cypress to not try JS parsing
-    stepDefinitions: 'cypress/e2e/BDD/step_definitions'
+    stepDefinitions: './cypress/e2e/BDD/step_definitions'
   });
 
   on("file:preprocessor", browserify({
