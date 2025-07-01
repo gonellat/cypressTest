@@ -1,5 +1,5 @@
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
-import HomePage from "../../../support/pageObjects/HomePage"
+const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
+const HomePage = require("../../../../support/pageObjects/HomePage");
 const homePage = new HomePage()
 
 Given('I am on Ecommerce Page', () => {
