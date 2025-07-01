@@ -12,12 +12,32 @@
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
 //
-Cypress.Commands.add('submitFormDetails',()=>
-{
+
+Cypress.Commands.add("LoginAPI",()=> {
+        cy.request('POST','https://rahulshettyacademy.com/api/ecom/auth/login', {
+                  "userEmail":"timothy.gonella@cgi.com",
+                  "userPassword":"CypressP@ssword123"
+                }).then (function(response) {
+                        expect(response.status).to.eq(200)
+                        Cypress.env('token',response.body.token)
+                });
+});
+
+// Cypress.Commands.add('selectProduct',(productName)=> {
+//         cy.get('h4.card-title').each(($el,index, $list) => {
+//                 if($el.text().includes(productName)) {
+//                         cy.get('button.btn.btn-info').eq(index).click()
+//                 }
+//         })
+// })
+
+Cypress.Commands.add('submitFormDetails',()=> {
         cy.get("#country").type("India")
         cy.get(".suggestions ul li a").click()
         cy.get(".btn-success").click()
 })
+
+
 
 
 

@@ -53,7 +53,8 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: [
       "cypress/e2e/BDD/features/*.feature",
-      "cypress/e2e/UI/*.js"
+      "cypress/e2e/UI/*.js",
+      "cypress/e2e/API/*.js"
     ],
     supportFile: "cypress/support/e2e.js",
 
