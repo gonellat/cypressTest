@@ -13,6 +13,9 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+import sqlServer from 'cypress-sql-server';
+sqlServer.loadDBCommands();
+
 // Import commands.js using ES2015 syntax:
 import 'cypress-mochawesome-reporter/register';
 import './commands'

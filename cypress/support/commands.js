@@ -13,6 +13,7 @@
 // Cypress.Commands.add("login", (email, password) => { ... })
 //
 
+
 Cypress.Commands.add("LoginAPI",()=> {
         cy.request('POST','https://rahulshettyacademy.com/api/ecom/auth/login', {
                   "userEmail":"timothy.gonella@cgi.com",

@@ -1,8 +1,22 @@
 const { defineConfig } = require("cypress");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
+const browserify = require("@cypress/browserify-preprocessor");
+const sqlServer = require('cypress-sql-server');
 
 async function setupNodeEvents(on, config) {
+  config.db = {
+    userName: "CloudSAce7e739a",
+    password: "CypressD@tabase123",
+    server: "cypressservertg.database.windows.net",
+    options: {
+      database: "CypressDatabase",
+      encrypt: true,
+      rowCollectionOnRequestCompletion: true
+    }
+  }
+  let tasks = sqlServer.loadDBPlugin(config.db);
+  on('task', tasks);
+
   if (!config.env) {
     config.env = {};
   }
@@ -13,9 +27,12 @@ async function setupNodeEvents(on, config) {
     stepDefinitions: 'cypress/e2e/BDD/step_definitions'
   });
 
-  on("file:preprocessor", browserify.default(config));
+  on("file:preprocessor", browserify({
+    typescript: require.resolve("typescript"),
+  }));
 
-return config;
+
+  return config;
 }
 
 
@@ -54,7 +71,8 @@ module.exports = defineConfig({
     specPattern: [
       "cypress/e2e/BDD/features/*.feature",
       "cypress/e2e/UI/*.js",
-      "cypress/e2e/API/*.js"
+      "cypress/e2e/API/*.js",
+      "cypress/e2e/DB/*.js"
     ],
     supportFile: "cypress/support/e2e.js",
 
